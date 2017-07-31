@@ -1,0 +1,19 @@
+mixin shopnav(name, details)
+    .container
+        nav.nav.has-shadow
+            .nav-left
+                - var url = '/designer/' + name
+                a(href='/').nav-item.is-tab Gallery
+                if details
+                    a(href=url).nav-item.is-tab Shop
+                    a(href='#').nav-item.is-active.is-tab Details
+                else
+                    a(href='#').nav-item.is-active.is-tab Shop
+
+            .nav-right.nav-menu
+                a.nav-item.is-tab.snipcart-summary.snipcart-checkout
+                    i.fa.fa-shopping-cart &nbsp;
+                    | View cart (
+                    span.snipcart-total-items 0
+                    | )
+        block

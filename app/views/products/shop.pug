@@ -1,0 +1,46 @@
+extends ../store.pug
+include ../_mixins/snipcart.pug
+include ../_mixins/intro.pug
+include ../_mixins/shopnav.pug
+
+block content
+    - var imgUrl = ""
+    - var name = info[0].name
+    - var title = info[0].title
+    - var description = info[0].description
+    - var gallery = false
+    - var details = false
+    
+    +intro(imgUrl, title, description, gallery)
+    section.items-wrap
+        +shopnav(name, details)
+        //block content
+        .section(id="heading-section")
+            .container
+                .heading
+                    h1.title Our dresses
+
+        .section
+            .container
+                .columns.is-multiline
+                    each p in products
+                        .column.is-half
+                            article.media
+                                figure.media-left
+                                    p.image.is-64x64
+                                        img(src=p.image.url)
+                                .media-content
+                                    .content
+                                        p
+                                            strong #{ p.name }
+                                            small  #{ formatMoney(p.price) }
+                                            br
+                                            | !{ p.description }
+                                    nav.level
+                                        .level-left
+                                            +snipcart_button(p).level-item(title='Add to cart')
+                                                span.icon.is-small
+                                                    i.fa.fa-cart-plus
+                                            a(href=`/products/${info[0].name}/${p.id}`, title='View details').level-item
+                                                span.icon.is-small
+                                                    i.fa.fa-info

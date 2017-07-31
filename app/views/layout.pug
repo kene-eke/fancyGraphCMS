@@ -1,0 +1,84 @@
+include ../views/_mixins/intro.pug
+
+html
+    head
+        if title
+            title #{ title }
+        else
+            title Fancy E-Commerce shop powered by codrops, GraphCMS and Snipcart
+
+        block styles
+            link(href='https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.2/css/bulma.min.css', rel='stylesheet', type="text/css")
+            link(href="https://cdn.snipcart.com/themes/2.0/base/snipcart.min.css", type="text/css", rel="stylesheet")
+            link(href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css', type='text/css', rel='stylesheet')
+            link(href='/css/normalize.css', rel='stylesheet', type='text/css')
+            link(href='/css/demo.css', rel='stylesheet', type='text/css')
+            link(href='/css/layout-multi.css', rel='stylesheet', type='text/css')
+
+        block scripts
+            script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js")
+            script(src="https://cdn.snipcart.com/scripts/2.0/snipcart.js", id="snipcart", data-api-key=snipcartApiKey)
+            script(src="/js/modernizr.custom.js")
+        
+    body
+        svg.hidden
+            g(id="icon-grid")
+                rect(x="32.5", y="5.5", width="22", height="22")
+                rect(x="4.5", y="5.5", width="22", height="22")
+                rect(x="32.5", y="33.5", width="22", height="22")
+                rect(x="4.5", y="33.5", width="22", height="22")
+            g(id="icon-cross")
+                line(x1="4.5", y1="55.5", x2="54.953", y2="5.046")
+                line(x1="54.953", y1="55.5", x2="4.5", y2="5.047")
+        nav.thumb-nav
+            ul.nav-link
+                li
+                    a(data-container="container-1", href="#").thumb-nav__item
+                        img(src="/img/thumbs/thumb1.png", alt="thumb01")
+                        span 1
+                    span.thumb-nav-span Home
+                    span.clear
+                li
+                    a(data-container="container-2", href="#").thumb-nav__item
+                        img(src="/img/thumbs/thumb2.png", alt="thumb02")
+                        span 2
+                    span.thumb-nav-span Omoge Creations
+                li
+                    a(data-container="container-3", href="#").thumb-nav__item
+                        img(src="/img/thumbs/thumb3.png", alt="thumb03")
+                        span 3
+                    span.thumb-nav-span Jayke Closet
+        div(id="container-1").content-container.theme-1
+            +intro("/img/joliepepee.jpg", "Jolie Pépée", "Bridging the gap between you and exciting young African designers", true)
+            section.items-wrap
+                .container.items-wrap
+                    span About Us section text would go here.
+        div(id="container-2").content-container.theme-2
+            +intro("/img/omogecreations.jpg", "Omoge Creations", "Fun, exciting, new African designs, for a new you.", true)
+            section.items-wrap
+                a(href="#").item
+                    img(src="img/deolaSagoe1.jpg", alt="deolaSagoe1").item__image
+                    h2.item__title Elegance
+                a(href="#").item
+                    img(src="img/deolaSagoe2.jpg", alt="deolaSagoe2").item__image
+                    h2.item__title Magnificence
+        div(id="container-3").content-container.theme-3
+            +intro("/img/jaykecloset.jpg", "Jayke Closet", "Fashion, for the stylish African professional.", true)
+            section.items-wrap
+                a(href="#").item
+                    img(src="img/deolaSagoe3.jpg", alt="deolaSagoe3").item__image
+                    h2.item__title Excellence
+                a(href="#").item
+                    img(src="img/deolaSagoe4.jpg", alt="deolaSagoe4").item__image
+                    h2.item__title Opulence
+                a(href="#").item
+                    img(src="img/deolaSagoe5.jpg", alt="deolaSagoe5").item__image
+                    h2.item__title Eminence
+                a(href="#").item
+                    img(src="img/deolaSagoe.jpg", alt="deolaSagoe").item__image
+                    h2.item__title Eloquence
+        block content
+        script(src="/js/classie.js")
+        script(src="/js/toggle.js")
+
+            

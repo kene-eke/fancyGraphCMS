@@ -1,0 +1,27 @@
+html
+    head
+        if title
+            title #{ title }
+        else
+            title Fancy E-Commerce shop powered by codrops, GraphCMS and Snipcart
+
+        block styles
+            link(href='https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.2/css/bulma.min.css', rel='stylesheet', type="text/css")
+            link(href="https://cdn.snipcart.com/themes/2.0/base/snipcart.min.css", type="text/css", rel="stylesheet")
+            link(href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css', type='text/css', rel='stylesheet')
+            link(href='/css/normalize.css', rel='stylesheet', type='text/css')
+            link(href='/css/demo.css', rel='stylesheet', type='text/css')
+            link(href='/css/layout-multi.css', rel='stylesheet', type='text/css')
+
+        block scripts
+            script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js")
+            script(src="https://cdn.snipcart.com/scripts/2.0/snipcart.js", id="snipcart", data-api-key=snipcartApiKey)
+            //script(src="/js/modernizr.custom.js")
+        
+    body
+        div.content-container.container--current.container--open.theme-2
+            block content
+            
+        //script(src="/js/classie.js")
+        //script(src="/js/toggle.js")  
+            
